@@ -4,6 +4,32 @@ let BOARD_WIDTH = 3;
 let BOARD_HEIGHT = 3;
 let cannonBalls = [];
 
+generateMap = (height, width, startPosition = [2, 1]) => {
+    BOARD_HEIGHT = height;
+    BOARD_WIDTH = width;
+    playerPosition = startPosition;
+    let gameBoard = document.querySelector('.game-board');
+    gameBoard.innerHTML = "";
+    for (let i = 0; i < height; i++) {
+        // Create game row
+        let gameRow = document.createElement('div');
+        gameRow.classList.add('game-row')
+
+        // Add squares to row
+        for (let j = 0; j < width; j++) {
+            let gameSquare = document.createElement('div');
+            gameSquare.classList.add('game-square');
+            gameRow.appendChild(gameSquare);
+        }
+
+        // Add row to board
+        gameBoard.appendChild(gameRow);
+    }
+
+}
+
+generateMap(7, 7)
+
 let gameRows = document.querySelectorAll('.game-board > div');
 
 let player = document.createElement('div');
@@ -119,6 +145,10 @@ const moveCannonBalls = () => {
             deleteCannonBall(ball.id);
         }
     })
+}
+
+const playerShoot = () => {
+    // Where is front?
 }
 
 const createCannonBall = (position, direction) => {
