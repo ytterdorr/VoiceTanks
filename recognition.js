@@ -62,8 +62,7 @@ recognition.onresult = function (event) {
     output.innerHTML = direction;
     console.log('Confidence: ' + event.results[0][0].confidence);
 
-    // Update cannonballs
-    moveCannonBalls();
+
 
     // handle turning
     if (direction == "left" || direction == "right") {
@@ -78,6 +77,9 @@ recognition.onresult = function (event) {
     if (direction == "shoot") {
         createCannonBall(playerPosition, playerDirection)
     }
+
+    // Update cannonballs
+    moveCannonBalls();
 
     // Finally draw
     drawGame()
